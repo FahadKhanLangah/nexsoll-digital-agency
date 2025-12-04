@@ -38,7 +38,7 @@ const Navbar = () => {
   `}
     >
       <Link href={"/"} className="text-3xl font-bold cursor-pointer">
-        Nex<span className="text-blue-500">Soll</span>
+        Nex<span className="text-orange-500">Soll</span>
       </Link>
 
       <ul className="hidden md:flex gap-6 text-white">
@@ -46,15 +46,15 @@ const Navbar = () => {
           <li key={link.href} className="relative group">
             <Link
               href={link.href}
-              className={`hover:text-blue-500 transition-all ${
-                pathName === link.href ? "text-blue-500" : ""
+              className={`hover:text-orange-500 transition-all ${
+                pathName === link.href ? "text-orange-500" : ""
               }`}
             >
               {link.name}
             </Link>
             <span
               className={`${pathName === link.href ? "w-full" : ""}
-    absolute left-0 -bottom-1 h-0.5 w-0 bg-blue-500 
+    absolute left-0 -bottom-1 h-0.5 w-0 bg-orange-500 
     transition-all duration-300 group-hover:w-full`}
             ></span>
           </li>
@@ -72,8 +72,8 @@ const Navbar = () => {
           {links.map((v) => (
             <Link
               className={`${
-                pathName === v.href ? "text-blue-500" : ""
-              } text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-blue-400`}
+                pathName === v.href ? "text-orange-500" : ""
+              } text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-orange-400`}
               key={v.href}
               href={v.href}
             >
@@ -82,7 +82,7 @@ const Navbar = () => {
           ))}
           <Button
             onClick={() => router.push("/get-a-quote")}
-            className="hover:bg-blue-600 w-[90%] bg-blue-500"
+            className="hover:bg-orange-600 w-[90%] bg-orange-500"
           >
             Get A Quote
           </Button>
@@ -92,7 +92,7 @@ const Navbar = () => {
       <div className="hidden md:block">
         <Button
           onClick={() => router.push("/get-a-quote")}
-          className="hover:bg-blue-600 bg-blue-500"
+          className="hover:bg-orange-600 bg-orange-500"
         >
           Get A Quote
         </Button>
