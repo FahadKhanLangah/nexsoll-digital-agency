@@ -3,12 +3,23 @@
 import Link from "next/link";
 import Button from "../ui/Button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const links = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
@@ -18,7 +29,12 @@ const Navbar = () => {
     { name: "Contact Us", href: "/contact" },
   ];
   return (
-    <nav className="h-16 bg-black w-full flex mx-auto justify-between items-center px-5">
+    <nav
+      className={`w-full justify-between bg-black/40 backdrop-blur-xl border-b border-white/10
+    fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-5 transition-all duration-300
+    ${scrolled ? "bg-black/90 shadow-lg backdrop-blur-md" : "bg-transparent"}
+  `}
+    >
       <Link href={"/"} className="text-3xl font-bold cursor-pointer">
         Nex<span className="text-blue-500">Soll</span>
       </Link>
@@ -49,7 +65,7 @@ const Navbar = () => {
       </button>
 
       {open && (
-        <div className="md:hidden absolute top-20 left-0 items-center py-5 gap-5 w-full bg-black flex flex-col">
+        <div className="md:hidden absolute top-20 left-0 items-center py-5 gap-5 w-full z-50 bg-black flex flex-col">
           {links.map((v) => (
             <Link
               className="text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-blue-400"
