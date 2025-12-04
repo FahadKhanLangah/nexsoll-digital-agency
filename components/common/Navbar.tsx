@@ -71,7 +71,9 @@ const Navbar = () => {
         <div className="md:hidden absolute top-20 left-0 items-center py-5 gap-5 w-full z-50 bg-black flex flex-col">
           {links.map((v) => (
             <Link
-              className="text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-blue-400"
+              className={`${
+                pathName === v.href ? "text-blue-500" : ""
+              } text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-blue-400`}
               key={v.href}
               href={v.href}
             >
