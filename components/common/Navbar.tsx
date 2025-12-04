@@ -7,6 +7,14 @@ import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+export const links = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact Us", href: "/contact" },
+];
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -23,14 +31,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact Us", href: "/contact" },
-  ];
   return (
     <nav
       className={`w-full justify-between bg-black/40 backdrop-blur-xl border-b border-white/10
