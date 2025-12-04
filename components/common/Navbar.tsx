@@ -5,8 +5,10 @@ import Button from "../ui/Button";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathName = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -44,15 +46,16 @@ const Navbar = () => {
           <li key={link.href} className="relative group">
             <Link
               href={link.href}
-              className="hover:text-blue-500 transition-all"
+              className={`hover:text-blue-500 transition-all ${
+                pathName === link.href ? "text-blue-500" : ""
+              }`}
             >
               {link.name}
             </Link>
             <span
-              className="
+              className={`${pathName === link.href ? "w-full" : ""}
     absolute left-0 -bottom-1 h-0.5 w-0 bg-blue-500 
-    transition-all duration-300 group-hover:w-full
-  "
+    transition-all duration-300 group-hover:w-full`}
             ></span>
           </li>
         ))}
