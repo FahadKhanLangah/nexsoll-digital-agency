@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -66,29 +67,35 @@ const Navbar = () => {
       >
         {open ? <HiX /> : <HiMenu />}
       </button>
-
-      {open && (
-        <div className="md:hidden absolute top-20 left-0 items-center py-5 gap-5 w-full z-50 bg-black flex flex-col">
-          {links.map((v) => (
-            <Link
-              className={`${
-                pathName === v.href ? "text-orange-500" : ""
-              } text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-orange-400`}
-              key={v.href}
-              href={v.href}
-            >
-              {v.name}
-            </Link>
-          ))}
-          <Button
-            onClick={() => router.push("/get-a-quote")}
-            className="hover:bg-orange-600 w-[90%] bg-orange-500"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="md:hidden absolute top-20 left-0 items-center py-5 gap-5 w-full z-50 bg-black flex flex-col"
           >
-            Get A Quote
-          </Button>
-        </div>
-      )}
-
+            {links.map((v) => (
+              <Link
+                className={`${
+                  pathName === v.href ? "text-orange-500" : ""
+                } text-lg w-full text-start px-10 bg-gray-950 py-2 hover:text-orange-400`}
+                key={v.href}
+                href={v.href}
+              >
+                {v.name}
+              </Link>
+            ))}
+            <Button
+              onClick={() => router.push("/get-a-quote")}
+              className="hover:bg-orange-600 w-[90%] bg-orange-500"
+            >
+              Get A Quote
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="hidden md:block">
         <Button
           onClick={() => router.push("/get-a-quote")}
