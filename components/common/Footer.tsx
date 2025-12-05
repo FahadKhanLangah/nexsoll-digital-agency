@@ -117,7 +117,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h3 className="text-xl font-semibold mb-4 border-l-4 border-orange-500 pl-3">
-              Contact Me
+              Contact us
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
