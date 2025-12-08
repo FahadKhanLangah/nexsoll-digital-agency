@@ -16,8 +16,8 @@ export default function AnimatedImage({ img, alt, strings }: propImage) {
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
       strings,
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 100,
+      backSpeed: 50,
       loop: true,
     });
 

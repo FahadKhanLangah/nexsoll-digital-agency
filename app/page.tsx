@@ -1,4 +1,5 @@
 import Hero from "@/components/common/Hero";
+import Services from "@/components/common/Services";
 import Card from "@/components/ui/Card";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
     <div className="flex mt-16 gap-5 sm:mt-20 flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Hero />
       <Card />
-      {/* <Services /> */}
+      <Services />
     </div>
   );
 }

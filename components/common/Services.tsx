@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import {
   FaLaptopCode,
@@ -58,16 +59,12 @@ const Services = () => {
 
   const cardVariants = {
     hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+
     hover: {
       y: -10,
       boxShadow:
         "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      transition: { duration: 0.3 },
+      transition: { duration: 0.6 },
     },
   };
 
@@ -84,7 +81,7 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text inline-block">
-            Services I Offer
+            Services We Offers
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             I provide comprehensive solutions that cover the entire development
@@ -99,7 +96,7 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {services.map((service, index) => (
+          {services.slice(0, 3).map((service, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
@@ -131,7 +128,7 @@ const Services = () => {
                           <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm">
                             Express
                           </span>
-                          \
+
                           <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm">
                             Next.js
                           </span>
@@ -219,10 +216,10 @@ const Services = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
               <h3 className="text-2xl font-bold mb-2">
-                My Development Process
+                Our Development Process
               </h3>
               <p className="opacity-80">
-                I follow agile approach to deliver high-quality solutions on
+                We follow agile approach to deliver high-quality solutions on
                 time and within budget.
               </p>
             </div>

@@ -11,7 +11,7 @@ const Card = () => {
     "
     >
       <h2>Choose Nexsoll Empowering Growth</h2>
-      <Button className=" px-6 text-sm py-3 bg-orange-600">
+      <Button className="mt-3 px-6 text-sm py-3 bg-orange-600">
         View Services
       </Button>
     </div>
